@@ -3,8 +3,11 @@ var express = require("express");
 var axios = require("axios");
 var mongoose = require("mongoose");
 var logger = require("morgan");
-mongoose.connect("mongodb://localhost/timesData", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/timesData", { useNewUrlParser: true });
 var db = require("./models")
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/timesData";
+mongoose.connect(MONGODB_URI);
 
 var PORT = 3000;
 
